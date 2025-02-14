@@ -9,32 +9,32 @@ Created on Tue Feb 11 12:04:20 2025
 import math
 #creat a class for all the formulas
 class mathmatics:
-    def __init__(self,addition,subtraction,multiplication,division,sine,cosine,tangent,arcsine,arccos,arctan,square,square_root,pi):
+    def math (addition,subtraction,multiplication,division,sine,cosine,tangent,arcsine,arccos,arctan,square,square_root,pi):
 #define functions for all the math formulas
-        def addition (self, a,b):
+        def addition (a,b):
             return a+b
-        def subtraction (self, a,b):
+        def subtraction (a,b):
             return a-b
-        def  multiplication (self, a,b):
+        def  multiplication (a,b):
             return a*b
-        def divsion (self, a,b):
+        def divsion (a,b):
             return a/b
-        def sine (self, a):
+        def sine (a):
             return math.sin(a)
-        def cosine (self, a):
+        def cosine (a):
             return math.cos(a)
-        def tangent (self, a):
+        def tangent (a):
             return math.tan(a)
-        def arcsine(self, a):
+        def arcsine(a):
             return math.asin(a)
-        def arccos (self, a):
+        def arccos (a):
             return math.acos(a)
-        def arctan(self, a):
+        def arctan(a):
             return math.atan(a)
-        def square (self, a):
+        def square (a):
             return a**2
-        def square_root(self, a):
+        def square_root(a):
             return math.sqrt(a)
-        def pi (self):
+        def pi ():
             return math.pi
         
