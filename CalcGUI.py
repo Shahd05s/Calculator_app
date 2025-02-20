@@ -33,7 +33,8 @@ class ScientificCalculator:
         entry = tk.Entry(self.root, textvariable=self.input_var, font=("Arial", 24), bd=10, relief=tk.FLAT, justify='right', bg="#2b2b2b", fg="white")
         entry.grid(row=0, column=0, columnspan=4, ipadx=10, ipady=20, padx=10, pady=10, sticky="nsew")
         
-        instructions_label = tk.Label(self.root, text="In order to use the Operations enter the value (number) first then click the button ex: (0.5 arcsin)", font=("Arial", 10), bg="#293C4A", fg="white")
+        #instructions label
+        instructions_label = tk.Label(self.root, text="In order to use the Operations enter the value (number) first then click the button ex: (0.5 arcsin)", font=("Arial", 11), bg="#293C4A", fg="white")
         instructions_label.grid(row=1, column=0, columnspan=5, pady=5)
         
         # Define button styling
@@ -78,23 +79,11 @@ class ScientificCalculator:
             self.expression = self.expression[:-1]  # Remove last character
             self.input_var.set(self.expression)
             
-            '''
-        elif button_text in {"sin", "cos", "tan", "log", "²√", "x²"}:
-         #insert the function name followed by '('
-            if button_text == "²√":
-                self.expression += "²√("  # Square root function
-            elif button_text == "x²":
-                self.expression += "**2"  # Exponentiation
-            else:
-                self.expression += f"{button_text}("  # sin, cos, tan, log
-
+        elif button_text == "π":
+            self.expression += str(math.pi)
             self.input_var.set(self.expression)
+            
 
-        else:
-            self.expression += button_text  # Append character to expression
-            self.input_var.set(self.expression)      
-    
-            '''
         elif button_text in {"sin", "cos", "tan", "arcsin", "arccos", "arctan", "²√" , "x²","log"}:
             self.calculate_function(button_text)  # Handle trigonometric and square root functions
         else:
@@ -105,6 +94,7 @@ class ScientificCalculator:
     def calculate(self):
         # Evaluate the mathematical expression 
         try:
+
             result = eval(self.expression, {"__builtins__": None}, {"math": math, "pow": pow,
                            "sin": math.sin, "cos": math.cos, "tan": math.tan,
                            "sqrt": math.sqrt, "asin": math.asin, "acos": math.acos, "atan": math.atan})
@@ -128,13 +118,13 @@ class ScientificCalculator:
             elif func == "x²": 
                 result = self.mathop.square(value)  
             elif func == "log":
-                result = math.log10(value)
+                result = math.log10(value) if value > 0 else float('nan') 
             elif func == "arcsin": 
-                result = self.mathop.arcsine(value)
+                result = self.mathop.arcsine(value) 
             elif func == "arccos": 
-                result = self.mathop.arccos(value)
+                result = self.mathop.arccos(value) 
             elif func == "arctan": 
-                result = self.mathop.arctan(value)
+                result = self.mathop.arctan(value) 
             
                 
             self.input_var.set(result) 
